@@ -10,7 +10,14 @@ import {BlurView} from '@react-native-community/blur';
 import CustomIcon from '../shared/CustomIcon';
 import {COLORS} from '../shared/theme';
 
-const Tab = createBottomTabNavigator();
+export type TabParamLists = {
+  home: undefined;
+  cart: undefined;
+  notification: undefined;
+  like: undefined;
+};
+
+const Tab = createBottomTabNavigator<TabParamLists>();
 const Navigator = () => {
   return (
     <Tab.Navigator

@@ -1,10 +1,14 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import {Button, Text, TouchableOpacity, View} from 'react-native';
 
-const DetailScreen = () => {
+const DetailScreen = ({navigation}: any) => {
   return (
-    <View>
-      <Text>DetailScreen</Text>
+    <View className="flex-1 bg-slate-900 p-6 pt-14 ">
+      <Text className="text-white">DetailScreen</Text>
+      <Button title="Button" />
+      <TouchableOpacity onPress={() => navigation.goBack()}>
+        <Text className="text-white">Go back</Text>
+      </TouchableOpacity>
     </View>
   );
 };

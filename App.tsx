@@ -5,7 +5,18 @@ import PaymentScreen from './src/screens/PaymentScreen';
 import Navigator from './src/navigator/Navigator';
 import DetailScreen from './src/screens/DetailScreen';
 import SplashScreen from 'react-native-splash-screen';
-const Stack = createNativeStackNavigator();
+
+export type RootStackParamList = {
+  navigator: undefined;
+  detail: {
+    index: any;
+    id: any;
+    type: any;
+  };
+  payment: undefined;
+};
+
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
 function App(): React.JSX.Element {
   useEffect(() => {

@@ -13,8 +13,14 @@ import {COLORS, FONTSIZE} from '../shared/theme';
 import {useStore} from '../store/store';
 import CoffeeCard from '../components/CoffeeCard';
 import {getCategoriesFromData, getCoffeeList} from '../shared/CommonFunction';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {RootStackParamList} from '../../App';
 
-const HomeScreen = ({navigation}: any): JSX.Element => {
+type HomeScreenProps = {
+  navigation: NativeStackNavigationProp<RootStackParamList, 'detail'>;
+};
+
+const HomeScreen: React.FC<HomeScreenProps> = ({navigation}) => {
   const CoffeeList = useStore((state: any) => state.CoffeeList);
   const BeanList = useStore((state: any) => state.BeanList);
 
@@ -68,7 +74,7 @@ const HomeScreen = ({navigation}: any): JSX.Element => {
             return (
               <TouchableOpacity
                 onPress={() => {
-                  navigation.push('Details', {
+                  navigation.p('detail', {
                     index: item.index,
                     id: item.id,
                     type: item.type,
