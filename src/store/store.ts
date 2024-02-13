@@ -14,6 +14,13 @@ export const useStore = create(
       FavoritesList: [],
       CartList: [],
       OrderHistoryList: [],
+      IsLogin: false,
+      setLogin: (loginState: any) =>
+        set(
+          produce(state => {
+            state.IsLogin = loginState;
+          }),
+        ),
       addToCart: (cartItem: any) =>
         set(
           produce(state => {

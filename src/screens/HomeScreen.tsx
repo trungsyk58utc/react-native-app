@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, {useState} from 'react';
 import {
   FlatList,
@@ -24,6 +25,7 @@ const HomeScreen: React.FC<HomeScreenProps> = ({navigation}) => {
   const CoffeeList = useStore((state: any) => state.CoffeeList);
   const BeanList = useStore((state: any) => state.BeanList);
 
+  const [data, setData] = useState('');
   const [categories, setCategories] = useState(
     getCategoriesFromData(CoffeeList),
   );
@@ -39,6 +41,7 @@ const HomeScreen: React.FC<HomeScreenProps> = ({navigation}) => {
     <View className="flex-1 bg-slate-900 p-6 pt-14">
       <HeaderBar />
       <ScrollView>
+        <Text className="text-white">{data}</Text>
         <Text className="text-white text-2xl font-semibold leading-9 w-52">
           Find the best coffee for you
         </Text>
@@ -74,7 +77,7 @@ const HomeScreen: React.FC<HomeScreenProps> = ({navigation}) => {
             return (
               <TouchableOpacity
                 onPress={() => {
-                  navigation.p('detail', {
+                  navigation.push('detail', {
                     index: item.index,
                     id: item.id,
                     type: item.type,
